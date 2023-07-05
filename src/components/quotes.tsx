@@ -1,6 +1,13 @@
-import { useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 
-const Quotes = ({ children, count, onSubmit, onChange }: any) => {
+type QuotesProps = {
+   count: number; 
+   onChange?: React.ChangeEventHandler<HTMLInputElement>; 
+   onSubmit: React.FormEventHandler<HTMLFormElement>; 
+
+}
+
+const Quotes = ({ children, count, onSubmit, onChange }: PropsWithChildren<QuotesProps>) => {
   return (
     <section className="flex flex-col gap-8">
       <form
